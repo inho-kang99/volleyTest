@@ -114,15 +114,17 @@ const MyElement3D = ({ rally }) => {
       <directionalLight position={[1, 1, 1]} />
       <OrbitControls />
 
-      <Tube args={[tubePath, 47, 0.5, 256, false]}>
-        <meshBasicMaterial
-          color={"white"}
-          opacity={0.4}
-          transparent
-          side={THREE.DoubleSide}
-          depthWrite={false}
-        />
-      </Tube>
+      {tubePath.points.length && (
+        <Tube args={[tubePath, 47, 0.5, 256, false]}>
+          <meshBasicMaterial
+            color={"white"}
+            opacity={0.4}
+            transparent
+            side={THREE.DoubleSide}
+            depthWrite={false}
+          />
+        </Tube>
+      )}
 
       {dummyRally?.map((item, index) => (
         <mesh position={item.position} key={index}>
